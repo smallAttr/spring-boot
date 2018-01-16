@@ -47,13 +47,6 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public User register(User userToAdd) {
-        final String username = userToAdd.getUsername();
-        if(userRepository.findByUsername(username)!=null) {
-            return null;
-        }
-        final String rawPassword = userToAdd.getPassword();
-        userToAdd.setPassword(passwordEncoder.encode(rawPassword));
-        userToAdd.setRoles(Arrays.asList(Role.USER));
         return userRepository.save(userToAdd);
     }
 

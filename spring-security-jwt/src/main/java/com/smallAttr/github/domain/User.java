@@ -4,6 +4,7 @@ import com.smallAttr.github.enums.Role;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +29,6 @@ public class User {
 
     private Date LastPasswordResetDate;
 
-    @ElementCollection
-    private List<Role> roles;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<Role> roles = new ArrayList<>();
 }

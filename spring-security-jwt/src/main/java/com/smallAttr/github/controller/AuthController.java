@@ -69,9 +69,9 @@ public class AuthController {
         user.setLastPasswordResetDate(new Date());
 
         if (userRequest.getRoleType() == 0) {
-            user.setRoles(Arrays.asList(Role.ADMIN));
+            user.setRoles(Arrays.asList(Role.ROLE_ADMIN));
         } else {
-            user.setRoles(Arrays.asList(Role.USER));
+            user.setRoles(Arrays.asList(Role.ROLE_USER));
         }
         return authService.register(user);
     }
