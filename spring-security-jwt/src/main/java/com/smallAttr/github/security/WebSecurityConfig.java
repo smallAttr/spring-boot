@@ -35,6 +35,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
+
+    @Autowired
+    private RestAccessDeniedHandler restAccessDeniedHandler;
+
+    @Autowired
+    private RestAuthenticationFailureHandler restAuthenticationFailureHandler;
+
+    @Autowired
+    private RestAuthenticationSuccessHandler restAuthenticationSuccessHandler;
+
 
 
     @Autowired
@@ -87,7 +99,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 对于获取token的rest api要允许匿名访问
                 .antMatchers("/auth/**").permitAll()
                 // 除上面外的所有请求全部需要鉴权认证
-                .anyRequest().authenticated();
+                .anyRequest().authenticated().and()
+                // 记住登录状态
+                .rememberMe().userDetailsService(userDetailsService).useSecureCookie(false).alwaysRemember(true).and()
+                // 允许配置请求缓存
+                .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).accessDeniedHandler(restAccessDeniedHandler).and()
+                // 基于表单的身份验证
+                .formLogin().successHandler(restAuthenticationSuccessHandler).failureHandler(restAuthenticationFailureHandler).and()
+                .logout().and()
+                // 配置Http basic验证
+                .httpBasic();
+
         // 添加JWT filter
         httpSecurity
                 .addFilterBefore(jwtAuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
