@@ -1,0 +1,35 @@
+# Server configuration
+server:
+  port: 8085
+  contextPath:
+
+
+# Logging configuration
+logging:
+  level:
+    org.springframework:
+      data: DEBUG
+      security: DEBUG
+
+# Spring configuration
+#spring:
+#  application:
+#    name: admin
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/security-jwt?useUnicode=true&characterEncoding=utf-8
+#    username: root
+#    password: 123456
+#  jackson:
+#    serialization:
+#      INDENT_OUTPUT: true
+
+
+#  redis:
+#    host: 127.0.0.1
+#    password: ''
+#    port: 6379
+
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+#    hibernate.ddl-auto: update

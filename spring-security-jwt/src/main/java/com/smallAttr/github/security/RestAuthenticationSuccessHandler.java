@@ -24,7 +24,7 @@ public class RestAuthenticationSuccessHandler implements AuthenticationSuccessHa
     private JwtTokenUtils jwtTokenUtils;
 
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
+    public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) {
         if (authentication != null) {
             final String token = jwtTokenUtils.generateToken(authentication);
             httpServletResponse.setHeader("jwt_token", token);

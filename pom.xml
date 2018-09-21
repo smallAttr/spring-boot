@@ -11,6 +11,7 @@
     <modules>
         <module>spring-security-jwt</module>
         <module>framework-utils</module>
+        <module>spring-swagger2</module>
     </modules>
 
     <parent>
@@ -37,11 +38,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--jpa的jar包 ，操作数据库的，类似hibernate-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
     </dependencies>
 
 

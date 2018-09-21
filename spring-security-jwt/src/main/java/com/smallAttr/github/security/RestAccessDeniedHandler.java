@@ -17,7 +17,7 @@ import java.io.IOException;
 @Component
 public class RestAccessDeniedHandler implements AccessDeniedHandler {
     @Override
-    public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
+    public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException {
         httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED);
     }
 }

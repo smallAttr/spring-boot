@@ -17,7 +17,7 @@ import java.io.IOException;
 @Component
 public class RestAuthenticationFailureHandler implements AuthenticationFailureHandler {
     @Override
-    public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
+    public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException {
         httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED);
     }
 }
