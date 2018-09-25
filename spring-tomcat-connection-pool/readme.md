@@ -1,0 +1,5 @@
+spring boot默认使用的HikariCP作为默认连接池
+
+如果在类路径中没有找到HikariCP，那么将获取Tomcat JDBC连接池
+
+如果都不可用，Spring Boot将选择Apache Commons DBCP2

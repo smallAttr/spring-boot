@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    tomcat:
+      initial-size: 15
+      max-wait: 20000
+      max-active: 50
+      max-idle: 15
+      min-idle: 8
+      default-auto-commit: true
+
+    #url有以下几种形式:
+    # jdbc:h2:E:*/database 会持久化到磁盘文件，但是是单连接
+    # jdbc:h2:tcp://IP/database 通过远程连接的方式
+    # jdbc:h2:mem:database 直接在内存中，程序只要重启就会消失
+    url: jdbc:h2:mem:h2test
+    driver-class-name: org.h2.Driver
+    username: zbook
+    password: zbook
+  h2:
+    console:
+      path: /h2-console   # h2 web console 路径
+      enabled: true       # 开启 h2 web console，默认为 false
+      settings:
+        web-allow-others: true    #允许远程访问 h2 web console
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    database: h2
+
+server:
+  port: 9999
+
+
+

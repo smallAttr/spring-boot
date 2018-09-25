@@ -12,6 +12,7 @@
         <module>spring-security-jwt</module>
         <module>framework-utils</module>
         <module>spring-swagger2</module>
+        <module>spring-tomcat-connection-pool</module>
     </modules>
 
     <parent>
